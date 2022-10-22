@@ -78,6 +78,19 @@ For the script to work you need to have redshift installed.
 
 Contributed by [Maxim Mishukov](https://github.com/maksmeshkov)
 
+Para que sea sin root se usa --user:
+
+pablo@claude:~/yeelight-shell-scripts$ cp ./samples/yeelight-redshift.service $HOME/.config/systemd/user
+pablo@claude:~/yeelight-shell-scripts$ cp ./samples/yeelight-redshift.timer $HOME/.config/systemd/user
+pablo@claude:~/yeelight-shell-scripts$ gedit ../.config/systemd/user/yeelight-redshift.service 
+pablo@claude:~/yeelight-shell-scripts$ systemctl --user daemon-reload
+pablo@claude:~/yeelight-shell-scripts$ systemctl --user enable yeelight-redshift.timer
+Created symlink /home/pablo/.config/systemd/user/multi-user.target.wants/yeelight-redshift.timer → /home/pablo/.config/systemd/user/yeelight-redshift.timer.
+Unit /home/pablo/.config/systemd/user/yeelight-redshift.timer is added as a dependency to a non-existent unit multi-user.target.
+pablo@claude:~/yeelight-shell-scripts$ systemctl --user start yeelight-redshift.timer
+
+
+
 ## HA-Bridge and Amazon Alexa
 
 I am personally using this scripts on a Synology NAS with a running [HA-Bridge](https://github.com/bwssytems/ha-bridge/).
