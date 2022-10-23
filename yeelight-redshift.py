@@ -23,5 +23,5 @@ def lamp_temp(temp):
 
 while True:
     sleep(60)
-    new_temp = map_range(display_temp(), 4500,6500,4200,6000)
+    new_temp = map_range(display_temp(), 4500,6500,4000,5500)
     lamp_temp(new_temp)
